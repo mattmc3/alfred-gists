@@ -1,0 +1,17 @@
+The road to 1.0.0
+
+Gist App:
+	- Handle vendoring @done(2018-09-07)
+	- Cache gist json @done(2018-09-06)
+	- Add fuzzy finder with filter and search
+	✔ Add version information with bumpversion @done(18-09-11 10:33)
+	- Determine how to use dep / vgo for this
+	- Add "private" gist indicator (🔒)
+
+
+Workflow:
+	- Add a "create_token" method @done(2018-09-10)
+	- Add Large Text @done(2018-09-10)
+	- Add Copy to Clipboard @done(2018-09-10)
+	- Add Select file @done(2018-09-10)
+	- Publish to Packal
