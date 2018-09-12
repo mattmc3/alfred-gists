@@ -4,8 +4,23 @@
 <dict>
 	<key>bundleid</key>
 	<string>com.mattmc3.alfred.gists</string>
+	<key>category</key>
+	<string>Productivity</string>
 	<key>connections</key>
 	<dict>
+		<key>07739458-61A8-4BFD-B55C-B5C282F14D93</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>59A04702-319A-435C-96F6-A833AC8D303F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>22F46E26-F23D-41FB-83B2-35527A83E01F</key>
 		<array>
 			<dict>
@@ -130,11 +145,11 @@
 			</dict>
 			<dict>
 				<key>destinationuid</key>
-				<string>E8CDAF4E-A8BD-426A-8D04-1FDC24A720BD</string>
+				<string>BE9394B8-F4F4-40C1-9E49-62345D515761</string>
 				<key>modifiers</key>
 				<integer>262144</integer>
 				<key>modifiersubtext</key>
-				<string>Open raw gist in browser</string>
+				<string>Open raw text</string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
@@ -183,19 +198,6 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>F5D646A7-CC35-4FD9-A4E1-F01B375BABD5</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>E8CDAF4E-A8BD-426A-8D04-1FDC24A720BD</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>BE9394B8-F4F4-40C1-9E49-62345D515761</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -327,7 +329,7 @@ gistFileCount: {var:gistFileCount}
 				<key>runningsubtext</key>
 				<string>Loading gists</string>
 				<key>script</key>
-				<string>./bin/alfred-gists list {query}
+				<string>./alfred-gists list {query}
 </string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
@@ -438,7 +440,7 @@ gistFileCount: {var:gistFileCount}
 				<key>spaces</key>
 				<string></string>
 				<key>url</key>
-				<string>{var:gistHtmlUrl}</string>
+				<string>{query}</string>
 				<key>utf8</key>
 				<true/>
 			</dict>
@@ -465,24 +467,6 @@ gistFileCount: {var:gistFileCount}
 			<string>alfred.workflow.action.openurl</string>
 			<key>uid</key>
 			<string>BE9394B8-F4F4-40C1-9E49-62345D515761</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argument</key>
-				<string>{var:gistRawUrl}</string>
-				<key>variables</key>
-				<dict>
-					<key></key>
-					<string></string>
-				</dict>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.argument</string>
-			<key>uid</key>
-			<string>E8CDAF4E-A8BD-426A-8D04-1FDC24A720BD</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -614,6 +598,46 @@ gistFileCount: {var:gistFileCount}
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>https://gist.github.com</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>59A04702-319A-435C-96F6-A833AC8D303F</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>gist-new</string>
+				<key>subtext</key>
+				<string>Create new GitHub gist</string>
+				<key>text</key>
+				<string>gist-new</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>07739458-61A8-4BFD-B55C-B5C282F14D93</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string>This workflow provides an interface with GitHub gists allowing you to easily:
@@ -622,9 +646,18 @@ gistFileCount: {var:gistFileCount}
   - Browse to the gist URL
   - Browse to the raw text gist URL
 
-This workflow utilizes the GitHub API and caches the gist list result for a period of 5 minutes to keep from hammering GitHub. If you create a new gist, the cache must be expired if you want a refresh prior to the timeout.</string>
+This workflow utilizes the GitHub API and caches the gist list result for a period of 5 minutes to keep from hammering GitHub. If you create a new gist, the cache must be expired if you want a refresh prior to the timeout.
+
+Source code available at: https://github.com/mattmc3/alfred-gists</string>
 	<key>uidata</key>
 	<dict>
+		<key>07739458-61A8-4BFD-B55C-B5C282F14D93</key>
+		<dict>
+			<key>xpos</key>
+			<integer>90</integer>
+			<key>ypos</key>
+			<integer>910</integer>
+		</dict>
 		<key>22F46E26-F23D-41FB-83B2-35527A83E01F</key>
 		<dict>
 			<key>xpos</key>
@@ -640,6 +673,15 @@ This workflow utilizes the GitHub API and caches the gist list result for a peri
 			<integer>580</integer>
 			<key>ypos</key>
 			<integer>370</integer>
+		</dict>
+		<key>59A04702-319A-435C-96F6-A833AC8D303F</key>
+		<dict>
+			<key>note</key>
+			<string>Navigate to gist.github.com to create a new gist</string>
+			<key>xpos</key>
+			<integer>440</integer>
+			<key>ypos</key>
+			<integer>910</integer>
 		</dict>
 		<key>637988FB-3B0E-4435-944D-F527AF70DB6C</key>
 		<dict>
@@ -747,13 +789,6 @@ This workflow utilizes the GitHub API and caches the gist list result for a peri
 			<key>ypos</key>
 			<integer>780</integer>
 		</dict>
-		<key>E8CDAF4E-A8BD-426A-8D04-1FDC24A720BD</key>
-		<dict>
-			<key>xpos</key>
-			<integer>400</integer>
-			<key>ypos</key>
-			<integer>590</integer>
-		</dict>
 		<key>F5D646A7-CC35-4FD9-A4E1-F01B375BABD5</key>
 		<dict>
 			<key>xpos</key>
@@ -763,7 +798,7 @@ This workflow utilizes the GitHub API and caches the gist list result for a peri
 		</dict>
 	</dict>
 	<key>version</key>
-	<string>0.1.0</string>
+	<string>0.1.5</string>
 	<key>webaddress</key>
 	<string>https://github.com/mattmc3/alfred-gists</string>
 </dict>
